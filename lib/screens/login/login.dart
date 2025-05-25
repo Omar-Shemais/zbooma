@@ -40,22 +40,6 @@ class _LOGINState extends State<LOGIN> {
     });
   }
 
-  // void _showErrorDialog(String message) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (_) => AlertDialog(
-  //       title: const Center(
-  //           child: Text('خطأ', style: TextStyle(color: Colors.red))),
-  //       content: Text(message),
-  //       actions: [
-  //         TextButton(
-  //             onPressed: () => Navigator.pop(context),
-  //             child: const Text('حسناً')),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<LoginProvider>(context);
@@ -142,7 +126,7 @@ class _LOGINState extends State<LOGIN> {
                   Align(
                     alignment: Alignment.topCenter,
                     child: FractionalTranslation(
-                      translation: const Offset(0, -0.8),
+                      translation: const Offset(-.1, -0.9),
                       child: const JumpingBird(),
                     ),
                   ),

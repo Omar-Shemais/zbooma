@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:zbooma/core/widgets/snak_bar.dart';
 import 'package:zbooma/custom_widget/containers/jumping_avatar.dart';
 
 import 'package:zbooma/style/color.dart';
@@ -129,7 +130,7 @@ class _DATAState extends State<DATA> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(104),
+        preferredSize: Size.fromHeight(85.h),
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -139,10 +140,10 @@ class _DATAState extends State<DATA> {
           ),
           // color: Colors.black,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
             child: Column(
               children: [
-                const SizedBox(height: 35),
+                SizedBox(height: 35.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -154,25 +155,25 @@ class _DATAState extends State<DATA> {
                           Text(
                             'مرحبا بك ,${userData?['name'] ?? 'غير متوفر'}',
                             textDirection: TextDirection.rtl,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: AppColors.green,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const Text(
+                          Text(
                             'هنا تبدأ رحلتك نحو نجاح متجرك',
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
                               color: AppColors.green,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(width: 16),
+                    SizedBox(width: 16.w),
                     JumpingAvatar()
                   ],
                 ),
@@ -198,8 +199,8 @@ class _DATAState extends State<DATA> {
                 ? const Center(child: Text('فشل في تحميل البيانات'))
                 : Column(
                     children: [
-                      const Divider(
-                        height: 20,
+                      Divider(
+                        height: 20.h,
                         thickness: 2,
                         color: Color(0xff09f9a3),
                       ),
@@ -218,7 +219,7 @@ class _DATAState extends State<DATA> {
                               _buildDataRow(userData?['iban'], 'رقم IBAN'),
                               _buildDataRow(
                                   userData?['password'], 'كلمة المرور'),
-                              _buildDataRow(userData?['tbService']?['name'],
+                              _buildDataRow(userData?[' tbService']?[' name'],
                                   'نوع الخدمة'),
                               _buildDataRow(
                                   userData?['tbService']?['description'],
@@ -239,6 +240,7 @@ class _DATAState extends State<DATA> {
                                 userData?['tbWebsite']?['ulRName'],
                                 'رابط الموقع',
                                 isLink: true,
+                                showDivider: false,
                               ),
                             ],
                           ),
@@ -274,7 +276,8 @@ class _DATAState extends State<DATA> {
   }
 }
 
-Widget _buildDataRow(dynamic value, String label, {bool isLink = false}) {
+Widget _buildDataRow(dynamic value, String label,
+    {bool isLink = false, bool showDivider = true}) {
   if (value == null || value.toString().trim().isEmpty) {
     return const SizedBox.shrink();
   }
@@ -283,7 +286,7 @@ Widget _buildDataRow(dynamic value, String label, {bool isLink = false}) {
     crossAxisAlignment: CrossAxisAlignment.end,
     children: [
       Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
@@ -291,9 +294,10 @@ Widget _buildDataRow(dynamic value, String label, {bool isLink = false}) {
           children: [
             Text(
               ": $label ",
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.green,
                 fontWeight: FontWeight.bold,
+                fontSize: 18.sp,
               ),
             ),
             Flexible(
@@ -301,42 +305,50 @@ Widget _buildDataRow(dynamic value, String label, {bool isLink = false}) {
               child: isLink
                   ? InkWell(
                       onTap: () => _launchURL(value.toString().trim()),
-                      child: const Text(
+                      child: Text(
                         "LINK🔗",
                         style: TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
+                          fontSize: 13.sp,
                         ),
                       ),
                     )
                   : Text(
                       value.toString(),
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.sp,
+                      ),
                       overflow: TextOverflow.ellipsis,
                     ),
             ),
           ],
         ),
       ),
-      Divider(
-        endIndent: 15.w,
-        indent: 15.w,
-        height: 1,
-        thickness: 1,
-        color: Colors.grey,
-      ),
+      if (showDivider) ...[
+        SizedBox(height: 2.h),
+        Divider(
+          endIndent: 15.w,
+          indent: 15.w,
+          height: 1,
+          thickness: 1,
+          color: Colors.grey.withAlpha(128),
+        ),
+      ],
     ],
   );
 }
 
 Future<void> _launchURL(String url) async {
   try {
-    // final Uri uri = Uri.parse(url.trim());
-    final Uri uri = Uri.parse('https://google.com');
+    final Uri uri = Uri.parse(url.trim());
+    // final Uri uri = Uri.parse('https://google.com');
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
       print("❌ لا يمكن فتح الرابط: $url");
+      showSnackBar("❌ لا يمكن فتح الرابط: $url", isError: true);
     }
   } catch (e) {
     print("🚫 خطأ في الرابط: $e");

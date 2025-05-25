@@ -64,8 +64,9 @@ class CustomCard extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 13.sp,
               ),
+              textDirection: TextDirection.rtl,
               textAlign: TextAlign.center,
-              maxLines: 3,
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
             Spacer(), // Pushes arrow button to bottom of card

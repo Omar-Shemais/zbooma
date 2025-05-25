@@ -44,6 +44,7 @@ class CustomDeatailesCard extends StatelessWidget {
               color: Colors.white,
               fontSize: 11.sp,
             ),
+            textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
           ),
         ],
