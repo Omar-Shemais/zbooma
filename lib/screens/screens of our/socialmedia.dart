@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zbooma/core/utiles/route_utils/route_utils.dart';
 import 'package:zbooma/custom_widget/containers/custom_deatailes_card.dart';
+import 'package:zbooma/custom_widget/containers/step_card.dart';
 import 'package:zbooma/style/color.dart';
 import 'package:zbooma/style/size.dart';
 
-class socialmedia extends StatelessWidget {
-  const socialmedia({super.key});
+class Socialmedia extends StatelessWidget {
+  const Socialmedia({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,8 @@ class socialmedia extends StatelessWidget {
                 width: double.infinity,
                 child: Image.asset(
                   'assets/soical.png',
-                  scale: .1,
+                  // scale: .1,
+                  fit: BoxFit.cover,
                 )),
             SizedBox(
               height: height(context, .01),
@@ -129,251 +131,41 @@ class socialmedia extends StatelessWidget {
               height: height(context, 1.2),
               width: width(context, 1),
               child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/one.png',
-                          scale: 4.r,
-                        ),
-                        SizedBox(
-                          width: width(context, .03),
-                        ),
-                        Container(
-                          // color: Color(0xFF03110F),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width(context, .6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("الاستشارة الأولية :",
-                                        style: TextStyle(
-                                            color: Color(0xff09f9a3),
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(
-                                      height: height(context, .01),
-                                    ),
-                                    Text(
-                                        "نبدأ بفهم أهدافك التسويقية من خلال جلسة استشارية، حيث نقوم بتحديد النقاط الأساسية التي يجب تحسينها لتحقيق أفضل نتائج من إدارة حسابات السوشيال ميديا .",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold))
-                                    // endcontaner
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    // aaaa
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/two.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F)
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تحليل الحسابات والمنافسين:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نقوم بإجراء تحليل شامل خدمات ادرارة صفحات السوشيال  لحساباتك الحالية بالإضافة إلى دراسة المنافسين، لنتمكن من وضع استراتيجية تسويق تنافسية تلبي احتياجات السوق.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                  textDirection: TextDirection.rtl,
+                  child: Column(
+                    children: [
+                      StepCard(
+                        imagePath: 'assets/one.png',
+                        title: 'الاستشارة الأولية :',
+                        description:
+                            'نبدأ بفهم أهدافك التسويقية من خلال جلسة استشارية، حيث نقوم بتحديد النقاط الأساسية التي يجب تحسينها لتحقيق أفضل نتائج من إدارة حسابات السوشيال ميديا .',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/three.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تطوير وتنفيذ الاستراتيجية:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بناءً على التحليل، نطور استراتيجية محتوى وحملات إعلانية متكاملة، ثم ننفذها من خلال إنشاء محتوى مبتكر يعكس هويتك ويعزز تواجدك على السوشيال ميديا.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/two.png',
+                        title: 'تحليل الحسابات والمنافسين:',
+                        description:
+                            'نقوم بإجراء تحليل شامل خدمات ادرارة صفحات السوشيال  لحساباتك الحالية بالإضافة إلى دراسة المنافسين، لنتمكن من وضع استراتيجية تسويق تنافسية تلبي احتياجات السوق.',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/four.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("المتابعة والتحليل المستمر:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد تنفيذ الخطة، نتابع الأداء بشكل دوري من خلال أدوات التحليل المتقدمة. نقدم تقارير مفصلة توضح نقاط القوة والضعف، مع اقتراحات لتحسين الأداء وزيادة التفاعل",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/three.png',
+                        title: 'تطوير وتنفيذ الاستراتيجية:',
+                        description:
+                            'بناءً على التحليل، نطور استراتيجية محتوى وحملات إعلانية متكاملة، ثم ننفذها من خلال إنشاء محتوى مبتكر يعكس هويتك ويعزز تواجدك على السوشيال ميديا.',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/five.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("التعديل والتحسين:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بناءً على النتائج التي نحصل عليها من التحليل، نقوم بتعديل الاستراتيجية وتطوير الحملات بشكل مستمر لضمان تحقيق أفضل النتائج وزيادة الأرباح.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/four.png',
+                        title: 'المتابعة والتحليل المستمر:',
+                        description:
+                            'بعد تنفيذ الخطة، نتابع الأداء بشكل دوري من خلال أدوات التحليل المتقدمة. نقدم تقارير مفصلة توضح نقاط القوة والضعف، مع اقتراحات لتحسين الأداء وزيادة التفاعل',
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                      StepCard(
+                        imagePath: 'assets/five.png',
+                        title: 'التعديل والتحسين:',
+                        description:
+                            'بناءً على النتائج التي نحصل عليها من التحليل، نقوم بتعديل الاستراتيجية وتطوير الحملات بشكل مستمر لضمان تحقيق أفضل النتائج وزيادة الأرباح.',
+                      ),
+                    ],
+                  )),
             )
           ])),
           Positioned(

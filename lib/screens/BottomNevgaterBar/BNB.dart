@@ -45,13 +45,13 @@ class _BNBState extends State<BNB> {
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/our.png',
+              'assets/our2.png',
               width: 24,
               height: 24,
               color: Colors.grey[400],
             ),
             activeIcon: Image.asset(
-              'assets/our.png',
+              'assets/our2.png',
               width: 24,
               height: 24,
               color: Colors.green,
@@ -80,8 +80,18 @@ class _BNBState extends State<BNB> {
             label: 'الفورم',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.person, color: Colors.grey),
-            activeIcon: const Icon(Icons.person, color: Colors.green),
+            icon: Image.asset(
+              'assets/databnb.png',
+              width: 24,
+              height: 24,
+              color: Colors.grey[400],
+            ),
+            activeIcon: Image.asset(
+              'assets/databnb.png',
+              width: 24,
+              height: 24,
+              color: Colors.green,
+            ),
             label: 'البيانات',
           ),
         ],

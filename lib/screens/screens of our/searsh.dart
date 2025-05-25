@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zbooma/core/utiles/route_utils/route_utils.dart';
 import 'package:zbooma/custom_widget/containers/custom_deatailes_card.dart';
+import 'package:zbooma/custom_widget/containers/step_card.dart';
 import 'package:zbooma/style/color.dart';
 import 'package:zbooma/style/size.dart';
 
@@ -28,7 +29,8 @@ class search extends StatelessWidget {
                 width: double.infinity,
                 child: Image.asset(
                   'assets/seo.png',
-                  scale: .4,
+                  // scale: .4.r,
+                  fit: BoxFit.cover,
                 )),
             SizedBox(
               height: height(context, .01),
@@ -130,245 +132,290 @@ class search extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/one.png',
-                          scale: 4.r,
-                        ),
-                        SizedBox(
-                          width: width(context, .03),
-                        ),
-                        Container(
-                          // color: Color(0xFF03110F),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width(context, .6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("الاستشارة الأولية :",
-                                        style: TextStyle(
-                                            color: Color(0xff09f9a3),
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(
-                                      height: height(context, .01),
-                                    ),
-                                    Text(
-                                        "نحدد استراتيجيتك المثلى لتحسين محركات البحث من خلال جلسة استشارية تفهم احتياجات متجرك وأهدافه",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold))
-                                    // endcontaner
-                                  ],
-                                ),
-                              )
+                    SingleChildScrollView(
+                      child: Container(
+                        width: width(context, 1),
+                        padding: EdgeInsets.symmetric(
+                            vertical: height(context, .03)),
+                        child: Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: Column(
+                            children: const [
+                              StepCard(
+                                imagePath: 'assets/one.png',
+                                title: "الاستشارة الأولية :",
+                                description:
+                                    "نحدد استراتيجيتك المثلى لتحسين محركات البحث من خلال جلسة استشارية تفهم احتياجات متجرك وأهدافه",
+                              ),
+                              StepCard(
+                                imagePath: 'assets/two.png',
+                                title: "تحليل الموقع:",
+                                description:
+                                    "نقوم بإجراء تحليل شامل لموقعك لتحديد نقاط القوة والضعف، ومن ثم وضع خطة عمل مخصصة لتحسين أداء السيو",
+                              ),
+                              StepCard(
+                                imagePath: 'assets/three.png',
+                                title: "تنفيذ الاستراتيجية:",
+                                description:
+                                    "يبدأ فريقنا المتخصص في تنفيذ الخطة الموضوعة في تحسين محرك البحث الرقمي ، بما في ذلك تحسين بنية الموقع والمحتوى، وبناء الروابط اللازمة",
+                              ),
+                              StepCard(
+                                imagePath: 'assets/four.png',
+                                title: "المتابعة والتحليل:",
+                                description:
+                                    "بعد تنفيذ الاستراتيجية، نتابع أداء الموقع بانتظام، ونقدم تقارير تفصيلية عن التقدم المحرز، مع اقتراحات لتحسين مستمر",
+                              ),
+                              StepCard(
+                                imagePath: 'assets/five.png',
+                                title: "الدعم المستمر:  ",
+                                description:
+                                    "نحن لا نكتفي بتحسين موقعك مرة واحدة، بل نقدم دعمًا مستمرًا لضمان بقاء متجرك في الصدارة. نتعامل مع أي تغييرات في خوارزميات محركات البحث ونقوم بتحديثات دورية لضمان استمرار النجاح",
+                              ),
                             ],
                           ),
-                        )
-                      ],
-                    ),
-                    // aaaa
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/two.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F)
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تحليل الموقع:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نقوم بإجراء تحليل شامل لموقعك لتحديد نقاط القوة والضعف، ومن ثم وضع خطة عمل مخصصة لتحسين أداء السيو",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                        ),
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/three.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تنفيذ الاستراتيجية:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "يبدأ فريقنا المتخصص في تنفيذ الخطة الموضوعة في تحسين محرك البحث الرقمي ، بما في ذلك تحسين بنية الموقع والمحتوى، وبناء الروابط اللازمة",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/four.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("المتابعة والتحليل:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد تنفيذ الاستراتيجية، نتابع أداء الموقع بانتظام، ونقدم تقارير تفصيلية عن التقدم المحرز، مع اقتراحات لتحسين مستمر",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/five.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(" الدعم المستمر:  ",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نحن لا نكتفي بتحسين موقعك مرة واحدة، بل نقدم دعمًا مستمرًا لضمان بقاء متجرك في الصدارة. نتعامل مع أي تغييرات في خوارزميات محركات البحث ونقوم بتحديثات دورية لضمان استمرار النجاح",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    )
+
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Image.asset(
+                    //       'assets/one.png',
+                    //       scale: 4.r,
+                    //     ),
+                    //     SizedBox(
+                    //       width: width(context, .03),
+                    //     ),
+                    //     Container(
+                    //       // color: Color(0xFF03110F),
+                    //       child: Row(
+                    //         children: [
+                    //           SizedBox(
+                    //             width: width(context, .6),
+                    //             child: Column(
+                    //               crossAxisAlignment: CrossAxisAlignment.start,
+                    //               mainAxisAlignment: MainAxisAlignment.center,
+                    //               children: [
+                    //                 Text("الاستشارة الأولية :",
+                    //                     style: TextStyle(
+                    //                         color: Color(0xff09f9a3),
+                    //                         fontSize: 20.sp,
+                    //                         fontWeight: FontWeight.bold)),
+                    //                 SizedBox(
+                    //                   height: height(context, .01),
+                    //                 ),
+                    //                 Text(
+                    //                     "نحدد استراتيجيتك المثلى لتحسين محركات البحث من خلال جلسة استشارية تفهم احتياجات متجرك وأهدافه",
+                    //                     style: TextStyle(
+                    //                         color: Colors.white,
+                    //                         fontSize: 13.sp,
+                    //                         fontWeight: FontWeight.bold))
+                    //                 // endcontaner
+                    //               ],
+                    //             ),
+                    //           )
+                    //         ],
+                    //       ),
+                    //     )
+                    //   ],
+                    // ),
+                    // // aaaa
+                    // Container(
+                    //   height: height(context, .2),
+                    //   // color: Color.fromARGB(225, 255, 4, 0),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Image.asset(
+                    //         'assets/two.png',
+                    //         scale: 4.r,
+                    //       ),
+                    //       SizedBox(
+                    //         width: width(context, .03),
+                    //       ),
+                    //       Container(
+                    //         // color: Color(0xFF03110F)
+                    //         child: Row(
+                    //           children: [
+                    //             SizedBox(
+                    //               width: width(context, .6),
+                    //               child: Column(
+                    //                 crossAxisAlignment:
+                    //                     CrossAxisAlignment.start,
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   Text("تحليل الموقع:",
+                    //                       style: TextStyle(
+                    //                           color: Color(0xff09f9a3),
+                    //                           fontSize: 20.sp,
+                    //                           fontWeight: FontWeight.bold)),
+                    //                   SizedBox(
+                    //                     height: height(context, .01),
+                    //                   ),
+                    //                   Text(
+                    //                       "نقوم بإجراء تحليل شامل لموقعك لتحديد نقاط القوة والضعف، ومن ثم وضع خطة عمل مخصصة لتحسين أداء السيو",
+                    //                       style: TextStyle(
+                    //                           color: Colors.white,
+                    //                           fontSize: 13.sp,
+                    //                           fontWeight: FontWeight.bold))
+                    //                   // endcontaner
+                    //                 ],
+                    //               ),
+                    //             )
+                    //           ],
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
+                    //   // aaaa
+                    // ),
+                    // Container(
+                    //   height: height(context, .2),
+                    //   // color: Color.fromARGB(225, 255, 4, 0),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Image.asset(
+                    //         'assets/three.png',
+                    //         scale: 4.r,
+                    //       ),
+                    //       SizedBox(
+                    //         width: width(context, .03),
+                    //       ),
+                    //       Container(
+                    //         // color: Color(0xFF03110F),
+                    //         child: Row(
+                    //           children: [
+                    //             SizedBox(
+                    //               width: width(context, .6),
+                    //               child: Column(
+                    //                 crossAxisAlignment:
+                    //                     CrossAxisAlignment.start,
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   Text("تنفيذ الاستراتيجية:",
+                    //                       style: TextStyle(
+                    //                           color: Color(0xff09f9a3),
+                    //                           fontSize: 20.sp,
+                    //                           fontWeight: FontWeight.bold)),
+                    //                   SizedBox(
+                    //                     height: height(context, .01),
+                    //                   ),
+                    //                   Text(
+                    //                       "يبدأ فريقنا المتخصص في تنفيذ الخطة الموضوعة في تحسين محرك البحث الرقمي ، بما في ذلك تحسين بنية الموقع والمحتوى، وبناء الروابط اللازمة",
+                    //                       style: TextStyle(
+                    //                           color: Colors.white,
+                    //                           fontSize: 13.sp,
+                    //                           fontWeight: FontWeight.bold))
+                    //                   // endcontaner
+                    //                 ],
+                    //               ),
+                    //             )
+                    //           ],
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
+                    //   // aaaa
+                    // ),
+                    // Container(
+                    //   height: height(context, .2),
+                    //   // color: Color.fromARGB(225, 255, 4, 0),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Image.asset(
+                    //         'assets/four.png',
+                    //         scale: 4.r,
+                    //       ),
+                    //       SizedBox(
+                    //         width: width(context, .03),
+                    //       ),
+                    //       Container(
+                    //         // color: Color(0xFF03110F),
+                    //         child: Row(
+                    //           children: [
+                    //             SizedBox(
+                    //               width: width(context, .6),
+                    //               child: Column(
+                    //                 crossAxisAlignment:
+                    //                     CrossAxisAlignment.start,
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   Text("المتابعة والتحليل:",
+                    //                       style: TextStyle(
+                    //                           color: Color(0xff09f9a3),
+                    //                           fontSize: 20.sp,
+                    //                           fontWeight: FontWeight.bold)),
+                    //                   SizedBox(
+                    //                     height: height(context, .01),
+                    //                   ),
+                    //                   Text(
+                    //                       "بعد تنفيذ الاستراتيجية، نتابع أداء الموقع بانتظام، ونقدم تقارير تفصيلية عن التقدم المحرز، مع اقتراحات لتحسين مستمر",
+                    //                       style: TextStyle(
+                    //                           color: Colors.white,
+                    //                           fontSize: 13.sp,
+                    //                           fontWeight: FontWeight.bold))
+                    //                   // endcontaner
+                    //                 ],
+                    //               ),
+                    //             )
+                    //           ],
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
+                    //   // aaaa
+                    // ),
+                    // Container(
+                    //   height: height(context, .2),
+                    //   // color: Color.fromARGB(225, 255, 4, 0),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Image.asset(
+                    //         'assets/five.png',
+                    //         scale: 4.r,
+                    //       ),
+                    //       SizedBox(
+                    //         width: width(context, .03),
+                    //       ),
+                    //       Container(
+                    //         // color: Color(0xFF03110F),
+                    //         child: Row(
+                    //           children: [
+                    //             SizedBox(
+                    //               width: width(context, .6),
+                    //               child: Column(
+                    //                 crossAxisAlignment:
+                    //                     CrossAxisAlignment.start,
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   Text(" الدعم المستمر:  ",
+                    //                       style: TextStyle(
+                    //                           color: Color(0xff09f9a3),
+                    //                           fontSize: 20.sp,
+                    //                           fontWeight: FontWeight.bold)),
+                    //                   SizedBox(
+                    //                     height: height(context, .01),
+                    //                   ),
+                    //                   Text(
+                    //                       "نحن لا نكتفي بتحسين موقعك مرة واحدة، بل نقدم دعمًا مستمرًا لضمان بقاء متجرك في الصدارة. نتعامل مع أي تغييرات في خوارزميات محركات البحث ونقوم بتحديثات دورية لضمان استمرار النجاح",
+                    //                       style: TextStyle(
+                    //                           color: Colors.white,
+                    //                           fontSize: 13.sp,
+                    //                           fontWeight: FontWeight.bold))
+                    //                   // endcontaner
+                    //                 ],
+                    //               ),
+                    //             )
+                    //           ],
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -378,6 +425,7 @@ class search extends StatelessWidget {
             top: 10,
             left: 10,
             child: IconButton(
+              highlightColor: Colors.black,
               icon: Icon(Icons.arrow_back_ios, color: AppColors.green),
               onPressed: () => RouteUtils.pop(),
             ),

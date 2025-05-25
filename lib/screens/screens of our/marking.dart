@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zbooma/core/utiles/route_utils/route_utils.dart';
 import 'package:zbooma/custom_widget/containers/custom_deatailes_card.dart';
+import 'package:zbooma/custom_widget/containers/step_card.dart';
 import 'package:zbooma/style/color.dart';
 import 'package:zbooma/style/size.dart';
 
@@ -28,7 +29,8 @@ class marketing extends StatelessWidget {
                 width: double.infinity,
                 child: Image.asset(
                   'assets/canbanin.png',
-                  scale: .3,
+                  // scale: .3,
+                  fit: BoxFit.cover,
                 )),
             SizedBox(
               height: height(context, .01),
@@ -131,251 +133,41 @@ class marketing extends StatelessWidget {
               height: height(context, 1.2),
               width: width(context, 1),
               child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/one.png',
-                          scale: 4.r,
-                        ),
-                        SizedBox(
-                          width: width(context, .03),
-                        ),
-                        Container(
-                          // color: Color(0xFF03110F),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width(context, .6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("الاستشارة الأولية :",
-                                        style: TextStyle(
-                                            color: Color(0xff09f9a3),
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(
-                                      height: height(context, .01),
-                                    ),
-                                    Text(
-                                        "نبدأ العملية بالاستماع إلى متطلباتك وتحليل مشروعك بشكل دقيق.",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold))
-                                    // endcontaner
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    // aaaa
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/two.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F)
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تحليل السوق والمنافسين:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نقوم بدراسة السوق الذي تعمل فيه، ونعمل على تحليل أداء منافسيك للإطلاع على كيفية تقديم الأفضل.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                  textDirection: TextDirection.rtl,
+                  child: Column(
+                    children: [
+                      StepCard(
+                        imagePath: 'assets/one.png',
+                        title: 'الاستشارة الأولية :',
+                        description:
+                            'نبدأ العملية بالاستماع إلى متطلباتك وتحليل مشروعك بشكل دقيق.',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/three.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تحديد الأهداف:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نعمل على تحديد الأهداف الواضحة والقابلة للقياس والتي تساهم في نجاح الحملة الإعلانية.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/two.png',
+                        title: 'تحليل السوق والمنافسين:',
+                        description:
+                            'نقوم بدراسة السوق الذي تعمل فيه، ونعمل على تحليل أداء منافسيك للإطلاع على كيفية تقديم الأفضل.',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/four.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تصميم الإعلانات:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "فريقنا الإبداعي يقوم بتصميم الإعلانات التي تتماشى مع هوية علامتك التجارية وتلفت أنظار الجمهور.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/three.png',
+                        title: 'تحديد الأهداف:',
+                        description:
+                            'نعمل على تحديد الأهداف الواضحة والقابلة للقياس والتي تساهم في نجاح الحملة الإعلانية.',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/five.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("إطلاق الحملة: ",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نقوم بإطلاق حملتك الإعلانية على القنوات المختارة مع متابعة دقيقة لكل خطوة.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/four.png',
+                        title: 'تصميم الإعلانات:',
+                        description:
+                            'فريقنا الإبداعي يقوم بتصميم الإعلانات التي تتماشى مع هوية علامتك التجارية وتلفت أنظار الجمهور.',
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                      StepCard(
+                        imagePath: 'assets/five.png',
+                        title: 'إطلاق الحملة: ',
+                        description:
+                            'نقوم بإطلاق حملتك الإعلانية على القنوات المختارة مع متابعة دقيقة لكل خطوة.',
+                      ),
+                    ],
+                  )),
             )
           ])),
           Positioned(

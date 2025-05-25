@@ -61,14 +61,6 @@ class _FilePicker1State extends State<FilePicker1> {
                     color: AppColors.green,
                     width: 2,
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.green.withOpacity(0.3),
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                      offset: Offset(0, 5),
-                    ),
-                  ],
                 ),
                 child: Center(
                   child: Column(

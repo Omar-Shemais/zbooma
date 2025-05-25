@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zbooma/core/widgets/snak_bar.dart';
 import 'package:zbooma/custom_widget/Bottoms/custom_Bottoms.dart';
 import 'package:zbooma/custom_widget/filepicker/file1.dart';
 import 'package:zbooma/style/size.dart';
@@ -62,32 +63,22 @@ class _TheFFFFFFState extends State<TheFFFFFF> {
       );
 
       if (response.statusCode == 200) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("✅ تم إرسال الملفات بنجاح!"),
-            backgroundColor: Colors.green,
-          ),
+        showSnackBar(
+          "✅ تم إرسال الملفات بنجاح!",
         );
 
         setState(() {
           isUploadedSuccessfully = true;
         });
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("❌ فشل في إرسال الملفات. حاول مرة أخرى."),
-            backgroundColor: Colors.red,
-          ),
+        showSnackBar(
+          "❌ فشل في إرسال الملفات. حاول مرة أخرى.",
+          isError: true,
         );
       }
     } catch (e) {
       print(" خطأ أثناء رفع الملفات: $e");
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("⚠️ حدث خطأ أثناء رفع الملفات."),
-          backgroundColor: Colors.orange,
-        ),
-      );
+      showSnackBar("⚠️ حدث خطأ أثناء رفع الملفات.", succColor: Colors.orange);
     }
 
     setState(() {
@@ -95,80 +86,89 @@ class _TheFFFFFFState extends State<TheFFFFFF> {
     });
   }
 
+  Future<void> refreshData() async {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/data.png"),
-                  fit: BoxFit.fill,
+      body: RefreshIndicator(
+        onRefresh: refreshData,
+        color: Colors.green,
+        backgroundColor: Colors.transparent,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/data.png"),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
-          ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  child: Image.asset(
-                    "assets/Frame.png",
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
-                SizedBox(height: height(context, .01)),
-                Text(
-                  "يرجى ملء الفورم بمعلومات دقيقة",
-                  style: AppTextStyles.headline2,
-                ),
-                SizedBox(height: height(context, .02)),
-                _buildFilePicker(
-                  label: "الرقم القومي",
-                  filePath: identityFile,
-                  onFilePicked: (file) => setState(() => identityFile = file),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildFilePicker(
-                        label: "IBAN",
-                        filePath: ibanFile,
-                        onFilePicked: (file) => setState(() => ibanFile = file),
-                      ),
-                      SizedBox(width: width(context, .05)),
-                      _buildFilePicker(
-                        label: "الوثيقة / السجل التجاري",
-                        filePath: commercialFile,
-                        onFilePicked: (file) =>
-                            setState(() => commercialFile = file),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: height(context, .02)),
-                if (!isUploadedSuccessfully)
+            SingleChildScrollView(
+              child: Column(
+                children: [
                   Container(
-                    height: height(context, .05),
-                    width: width(context, .9),
-                    child: isUploading
-                        ? const Center(child: CircularProgressIndicator())
-                        : CustomButton(
-                            text: "ارسال",
-                            onPressed: allFilesUploaded ? uploadFiles : null,
-                          ),
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.45,
+                    child: Image.asset(
+                      "assets/Frame.png",
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
-                SizedBox(height: height(context, .09)),
-              ],
+                  SizedBox(height: height(context, .01)),
+                  Text(
+                    "يرجى ملء الفورم بمعلومات دقيقة",
+                    style: AppTextStyles.headline2,
+                  ),
+                  SizedBox(height: height(context, .02)),
+                  _buildFilePicker(
+                    label: "الرقم القومي",
+                    filePath: identityFile,
+                    onFilePicked: (file) => setState(() => identityFile = file),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _buildFilePicker(
+                          label: "IBAN",
+                          filePath: ibanFile,
+                          onFilePicked: (file) =>
+                              setState(() => ibanFile = file),
+                        ),
+                        SizedBox(width: width(context, .05)),
+                        _buildFilePicker(
+                          label: "الوثيقة / السجل التجاري",
+                          filePath: commercialFile,
+                          onFilePicked: (file) =>
+                              setState(() => commercialFile = file),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: height(context, .02)),
+                  if (!isUploadedSuccessfully)
+                    Container(
+                      height: height(context, .05),
+                      width: width(context, .9),
+                      child: CustomButton(
+                        text: "ارسال",
+                        onPressed: allFilesUploaded ? uploadFiles : null,
+                        isLoading: isUploading,
+                      ),
+                    ),
+                  SizedBox(height: height(context, .09)),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

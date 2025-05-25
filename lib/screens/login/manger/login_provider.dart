@@ -27,12 +27,12 @@ class LoginProvider extends ChangeNotifier {
       if (response.containsKey('id') && response.containsKey('token')) {
         await _storageService.saveUserData(
             response['id'], response['token'], phone, password);
-        return null; // success
+        return null; // Success
       } else {
         return 'بيانات المستخدم غير مكتملة';
       }
     } catch (e) {
-      return 'فشل الاتصال بالسيرفر';
+      return e.toString().replaceAll('Exception: ', '');
     } finally {
       _isLoading = false;
       notifyListeners();

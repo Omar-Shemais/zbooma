@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zbooma/core/utiles/route_utils/route_utils.dart';
 import 'package:zbooma/custom_widget/containers/custom_deatailes_card.dart';
+import 'package:zbooma/custom_widget/containers/step_card.dart';
 import 'package:zbooma/style/color.dart';
 import 'package:zbooma/style/size.dart';
 
@@ -28,7 +29,8 @@ class graphic extends StatelessWidget {
                 width: double.infinity,
                 child: Image.asset(
                   'assets/design.png',
-                  scale: .4,
+                  // scale: .4,
+                  fit: BoxFit.cover,
                 )),
             SizedBox(
               height: height(context, .01),
@@ -124,244 +126,35 @@ class graphic extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/one.png',
-                          scale: 4.r,
-                        ),
-                        SizedBox(
-                          width: width(context, .03),
-                        ),
-                        Container(
-                          // color: Color(0xFF03110F),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width(context, .6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("الاستشارة الأولية :",
-                                        style: TextStyle(
-                                            color: Color(0xff09f9a3),
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(
-                                      height: height(context, .01),
-                                    ),
-                                    Text(
-                                        "نبدأ بالتواصل معك لفهم احتياجاتك وتوقعاتك. نتعرف على رؤيتك وأهدافك التجارية لضمان أن التصميمات التي نقدمها تتماشى مع هوية علامتك التجارية.",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold))
-                                    // endcontaner
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                    StepCard(
+                      imagePath: 'assets/one.png',
+                      title: "الاستشارة الأولية :",
+                      description:
+                          "نبدأ بالتواصل معك لفهم احتياجاتك وتوقعاتك. نتعرف على رؤيتك وأهدافك التجارية لضمان أن التصميمات التي نقدمها تتماشى مع هوية علامتك التجارية.",
                     ),
-                    // aaaa
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/two.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F)
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("البحث والتخطيط:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نحلل متطلباتك ونجري بحثًا شاملاً عن السوق والمنافسين لاتجاهات التصميم الحديثة، ثم نضع خطة زمنية مفصلة لتنفيذ كل مرحلة بكفاءة.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
+                    StepCard(
+                      imagePath: 'assets/two.png',
+                      title: "البحث والتخطيط:",
+                      description:
+                          "نحلل متطلباتك ونجري بحثًا شاملاً عن السوق والمنافسين لاتجاهات التصميم الحديثة، ثم نضع خطة زمنية مفصلة لتنفيذ كل مرحلة بكفاءة.",
                     ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/three.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("التصميم والابتكار: ",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "يبدأ فريقنا من المصممين المبدعين في تحويل الأفكار إلى تصميمات واقعية. نعمل على إبداع تصميمات مبتكرة تجمع بين الجمال والوظيفية، مع الالتزام بالمعايير الفنية العالية.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
+                    StepCard(
+                      imagePath: 'assets/three.png',
+                      title: "التصميم والابتكار:",
+                      description:
+                          "يبدأ فريقنا من المصممين المبدعين في تحويل الأفكار إلى تصميمات واقعية. نعمل على إبداع تصميمات مبتكرة تجمع بين الجمال والوظيفية، مع الالتزام بالمعايير الفنية العالية.",
                     ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/four.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("المراجعة والتعديل:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نشاركك التصميمات الأولية للحصول على ملاحظاتك. نحن ملتزمون بالتعديل والتحسين حتى نصل إلى التصميم النهائي الذي يلبي توقعاتك بالكامل.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
+                    StepCard(
+                      imagePath: 'assets/four.png',
+                      title: "المراجعة والتعديل:",
+                      description:
+                          "نشاركك التصميمات الأولية للحصول على ملاحظاتك. نحن ملتزمون بالتعديل والتحسين حتى نصل إلى التصميم النهائي الذي يلبي توقعاتك بالكامل.",
                     ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/five.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("التسليم والمتابعة: ",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          " بعد إتمام التصميمات النهائية، نقوم بتسليمها في الصيغ المطلوبة للاستخدام الفوري. نقدم أيضًا خدمات دعم مستمرة لضمان تحديث التصميمات عند الحاجة وتقديم المساعدة في تنفيذها بشكل صحيح.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                    StepCard(
+                      imagePath: 'assets/five.png',
+                      title: "التسليم والمتابعة:",
+                      description:
+                          "بعد إتمام التصميمات النهائية، نقوم بتسليمها في الصيغ المطلوبة للاستخدام الفوري. نقدم أيضًا خدمات دعم مستمرة لضمان تحديث التصميمات عند الحاجة وتقديم المساعدة في تنفيذها بشكل صحيح.",
                     ),
                   ],
                 ),

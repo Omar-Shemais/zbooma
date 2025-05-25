@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zbooma/core/utiles/route_utils/route_utils.dart';
 import 'package:zbooma/custom_widget/containers/custom_deatailes_card.dart';
+import 'package:zbooma/custom_widget/containers/step_card.dart';
 import 'package:zbooma/style/color.dart';
 import 'package:zbooma/style/size.dart';
 
-class programming extends StatelessWidget {
-  const programming({super.key});
+class Programming extends StatelessWidget {
+  const Programming({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,8 @@ class programming extends StatelessWidget {
                     width: double.infinity,
                     child: Image.asset(
                       'assets/prog.png',
-                      scale: .1,
+                      // scale: .1,
+                      fit: BoxFit.cover,
                     )),
               ],
             ),
@@ -137,245 +139,36 @@ class programming extends StatelessWidget {
               child: Directionality(
                 textDirection: TextDirection.rtl,
                 child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/one.png',
-                          scale: 4.r,
-                        ),
-                        SizedBox(
-                          width: width(context, .03),
-                        ),
-                        Container(
-                          // color: Color(0xFF03110F),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width(context, .6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("الاستشارة الأولية :",
-                                        style: TextStyle(
-                                            color: Color(0xff09f9a3),
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(
-                                      height: height(context, .01),
-                                    ),
-                                    Text(
-                                        "نبدأ بفهم احتياجات متجرك بشكل دقيق من خلال جلسة استشارية شاملة. نتعرف على أهدافك، والجمهور المستهدف، والتحديات التي تواجهها.",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold))
-                                    // endcontaner
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                  children: const [
+                    StepCard(
+                      imagePath: 'assets/one.png',
+                      title: "الاستشارة الأولية :",
+                      description:
+                          "نبدأ بفهم احتياجات متجرك بشكل دقيق من خلال جلسة استشارية شاملة. نتعرف على أهدافك، والجمهور المستهدف، والتحديات التي تواجهها.",
                     ),
-                    // aaaa
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/two.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F)
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("التخطيط والتصميم:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد جمع المعلومات اللازمة، نقوم بتخطيط وتنفيذ تصميم مبدئي يراعي تجربة المستخدم والجانب الجمالي. نعمل معك خطوة بخطوة لضمان أن التصميم يلبي توقعاتك.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
+                    StepCard(
+                      imagePath: 'assets/two.png',
+                      title: "التخطيط والتصميم:",
+                      description:
+                          "بعد جمع المعلومات اللازمة، نقوم بتخطيط وتنفيذ تصميم مبدئي يراعي تجربة المستخدم والجانب الجمالي. نعمل معك خطوة بخطوة لضمان أن التصميم يلبي توقعاتك.",
                     ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/three.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("التطوير والبرمجة:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "يبدأ فريقنا من المطورين في بناء متجرك باستخدام أحدث تقنيات برمجه مواقع . نحرص على أن يكون الموقع متجاوبًا، سريعًا، وآمنًا، مع دمج جميع الميزات التي تم الاتفاق عليها.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
+                    StepCard(
+                      imagePath: 'assets/three.png',
+                      title: "التطوير والبرمجة:",
+                      description:
+                          "يبدأ فريقنا من المطورين في بناء متجرك باستخدام أحدث تقنيات برمجه مواقع . نحرص على أن يكون الموقع متجاوبًا، سريعًا، وآمنًا، مع دمج جميع الميزات التي تم الاتفاق عليها.",
                     ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/four.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("الاختبار والتقييم:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد إكمال عملية التطوير، نقوم بإجراء اختبارات شاملة للتأكد من أن الموقع يعمل بكفاءة عالية دون أي مشاكل. يتم اختبار المتجر على مختلف الأجهزة والمتصفحات لضمان تجربة مستخدم ممتازة",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      // aaaa
+                    StepCard(
+                      imagePath: 'assets/four.png',
+                      title: "الاختبار والتقييم:",
+                      description:
+                          "بعد إكمال عملية التطوير، نقوم بإجراء اختبارات شاملة للتأكد من أن الموقع يعمل بكفاءة عالية دون أي مشاكل. يتم اختبار المتجر على مختلف الأجهزة والمتصفحات لضمان تجربة مستخدم ممتازة.",
                     ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/five.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("الإطلاق والمتابعة:",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد التأكد من جاهزية المتجر، نقوم بإطلاقه رسميًا. لكن عملنا لا يتوقف هنا؛ نحن نقدم دعمًا مستمرًا لضمان نجاح متجرك في السوق الإلكتروني. نتابع أداء الموقع ونوفر التحديثات والتحسينات اللازمة.",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                    StepCard(
+                      imagePath: 'assets/five.png',
+                      title: "الإطلاق والمتابعة:",
+                      description:
+                          "بعد التأكد من جاهزية المتجر، نقوم بإطلاقه رسميًا. لكن عملنا لا يتوقف هنا؛ نحن نقدم دعمًا مستمرًا لضمان نجاح متجرك في السوق الإلكتروني. نتابع أداء الموقع ونوفر التحديثات والتحسينات اللازمة.",
                     ),
                   ],
                 ),

@@ -19,15 +19,15 @@ class CustomCard extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(12.w),
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: Color(0xff212829),
           borderRadius: BorderRadius.circular(15.r),
-          border: Border.all(color: Colors.green, width: 2.w),
+          // border: Border.all(color: Colors.green, width: 2.w),
           boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.3),
-              blurRadius: 10.r,
-              spreadRadius: 2.r,
-              offset: Offset(0, 5),
+              blurRadius: 1.r,
+              spreadRadius: 1.r,
+              offset: Offset(0, 2),
             ),
           ],
         ),
@@ -35,8 +35,8 @@ class CustomCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 40.h,
-              width: 50.w,
+              height: 60.h,
+              width: 60.w,
               child: Image(image: image),
             ),
             SizedBox(height: 8.h),

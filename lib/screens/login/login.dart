@@ -8,6 +8,7 @@ import 'package:zbooma/core/widgets/snak_bar.dart';
 import 'package:zbooma/custom_widget/Bottoms/custom_Bottoms.dart';
 import 'package:zbooma/custom_widget/TextField/custom_textfeild.dart';
 import 'package:zbooma/custom_widget/cards/custom_card.dart';
+import 'package:zbooma/custom_widget/containers/jumping_avatar.dart';
 import 'package:zbooma/screens/BottomNevgaterBar/BNB.dart';
 import 'package:zbooma/screens/login/manger/login_provider.dart';
 import 'package:zbooma/style/color.dart';
@@ -132,21 +133,25 @@ class _LOGINState extends State<LOGIN> {
                                   BNB(userId: userId, token: token));
                             }
                           } else {
-                            showSnackBar(error);
+                            showSnackBar(error, isError: true);
                           }
                         },
                       ),
                     ],
                   ),
-                  Positioned(
-                    bottom: height(context, .32).h,
-                    left: width(context, .20).w,
-                    child: Image.asset(
-                      'assets/Component.png',
-                      width: width(context, .40).w,
-                      height: height(context, .20).h,
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: FractionalTranslation(
+                      translation: const Offset(0, -0.8),
+                      child: const JumpingBird(),
                     ),
                   ),
+
+                  // Positioned(
+                  //   bottom: height(context, .32).h,
+                  //   left: width(context, .20).w,
+                  //   child: const JumpingBird(),
+                  // ),
                 ],
               ),
             ),

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:zbooma/custom_widget/containers/jumping_avatar.dart';
 
 import 'package:zbooma/style/color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -129,7 +131,13 @@ class _DATAState extends State<DATA> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(104),
         child: Container(
-          color: Colors.black,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/data.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          // color: Colors.black,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
@@ -165,17 +173,7 @@ class _DATAState extends State<DATA> {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.green, width: 2),
-                      ),
-                      child: const CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage('assets/datai.png'),
-                      ),
-                    ),
+                    JumpingAvatar()
                   ],
                 ),
               ],
@@ -200,6 +198,11 @@ class _DATAState extends State<DATA> {
                 ? const Center(child: Text('فشل في تحميل البيانات'))
                 : Column(
                     children: [
+                      const Divider(
+                        height: 20,
+                        thickness: 2,
+                        color: Color(0xff09f9a3),
+                      ),
                       Expanded(
                         child: RefreshIndicator(
                           onRefresh: () => refreshData(),
@@ -276,50 +279,66 @@ Widget _buildDataRow(dynamic value, String label, {bool isLink = false}) {
     return const SizedBox.shrink();
   }
 
-  return Container(
-    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      textDirection: TextDirection.rtl,
-      children: [
-        Text(
-          ": $label ",
-          style: const TextStyle(
-            color: AppColors.green,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Flexible(
-          fit: FlexFit.loose,
-          child: isLink
-              ? InkWell(
-                  onTap: () => _launchURL(value.toString()),
-                  child: const Text(
-                    "LINK🔗",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.end,
+    children: [
+      Container(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          textDirection: TextDirection.rtl,
+          children: [
+            Text(
+              ": $label ",
+              style: const TextStyle(
+                color: AppColors.green,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Flexible(
+              fit: FlexFit.loose,
+              child: isLink
+                  ? InkWell(
+                      onTap: () => _launchURL(value.toString().trim()),
+                      child: const Text(
+                        "LINK🔗",
+                        style: TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      value.toString(),
+                      style: const TextStyle(color: Colors.white),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                )
-              : Text(
-                  value.toString(),
-                  style: const TextStyle(color: Colors.white),
-                  overflow: TextOverflow.ellipsis,
-                ),
+            ),
+          ],
         ),
-      ],
-    ),
+      ),
+      Divider(
+        endIndent: 15.w,
+        indent: 15.w,
+        height: 1,
+        thickness: 1,
+        color: Colors.grey,
+      ),
+    ],
   );
 }
 
 Future<void> _launchURL(String url) async {
-  final Uri uri = Uri.parse(url); // No need for startsWith check
-
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
-  } else {
-    print("❌ لا يمكن فتح الرابط: $url");
+  try {
+    // final Uri uri = Uri.parse(url.trim());
+    final Uri uri = Uri.parse('https://google.com');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      print("❌ لا يمكن فتح الرابط: $url");
+    }
+  } catch (e) {
+    print("🚫 خطأ في الرابط: $e");
   }
 }

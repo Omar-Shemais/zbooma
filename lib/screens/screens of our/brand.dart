@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zbooma/core/utiles/route_utils/route_utils.dart';
 import 'package:zbooma/custom_widget/containers/custom_deatailes_card.dart';
+import 'package:zbooma/custom_widget/containers/step_card.dart';
 import 'package:zbooma/style/color.dart';
 import 'package:zbooma/style/size.dart';
 
@@ -24,11 +25,12 @@ class Brand extends StatelessWidget {
               child:
                   Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
             SizedBox(
-                height: height(context, .3),
+                height: height(context, .37).h,
                 width: double.infinity,
                 child: Image.asset(
                   'assets/marketing.png',
-                  scale: .4,
+                  // scale: .4,
+                  fit: BoxFit.cover,
                 )),
             SizedBox(
               height: height(context, .01),
@@ -129,253 +131,41 @@ class Brand extends StatelessWidget {
               height: height(context, 1.2),
               width: width(context, 1),
               child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/one.png',
-                          scale: 4.r,
-                        ),
-                        SizedBox(
-                          width: width(context, .03),
-                        ),
-                        Container(
-                          // color: Color(0xFF03110F),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width(context, .6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("الاستشارة الأولية :",
-                                        style: TextStyle(
-                                            color: Color(0xff09f9a3),
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(
-                                      height: height(context, .01),
-                                    ),
-                                    Text(
-                                        "نبدأ بفهم رؤيتك وأهدافك من خلال جلسة استشارية. نقوم بتحديد النقاط التي تحتاج إلى تطوير ونضع خطة مبدئية في تطوير العلامة التجارية",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold))
-                                    // endcontaner
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    // aaaa
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/two.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F)
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("تحليل السوق والمنافسين",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نقوم بإجراء تحليل شامل للسوق والمنافسين لفهم الاتجاهات الحالية وتحديد الفرص المتاحة لعلامتك التجارية. هذا يساعدنا في وضع استراتيجيات تنافسية فعالة",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                  textDirection: TextDirection.rtl,
+                  child: Column(
+                    children: [
+                      StepCard(
+                        imagePath: 'assets/one.png',
+                        title: 'الاستشارة الأولية :',
+                        description:
+                            'نبدأ بفهم رؤيتك وأهدافك من خلال جلسة استشارية. نقوم بتحديد النقاط التي تحتاج إلى تطوير ونضع خطة مبدئية في تطوير العلامة التجارية',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/three.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                          "تصميم الهوية البصرية وتطوير الاستراتيجية",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد التحليل، نبدأ في تصميم الشعار والهوية البصرية، مع تطوير استراتيجية متكاملة تعبر عن قيم علامتك وتساعد في الوصول إلى الجمهور المستهدف",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/two.png',
+                        title: 'تحليل السوق والمنافسين',
+                        description:
+                            'نقوم بإجراء تحليل شامل للسوق والمنافسين لفهم الاتجاهات الحالية وتحديد الفرص المتاحة لعلامتك التجارية. هذا يساعدنا في وضع استراتيجيات تنافسية فعالة',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/four.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                          "تنفيذ الاستراتيجية وبناء الحضور الرقمي",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "نعمل على تنفيذ الاستراتيجية الموضوعة، بما في ذلك تطوير موقع الويب، إدارة وسائل التواصل الاجتماعي، وتقديم المحتوى الذي يعزز من تواجد علامتك الرقمية",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/three.png',
+                        title: 'تصميم الهوية البصرية وتطوير الاستراتيجية',
+                        description:
+                            'بعد التحليل، نبدأ في تصميم الشعار والهوية البصرية، مع تطوير استراتيجية متكاملة تعبر عن قيم علامتك وتساعد في الوصول إلى الجمهور المستهدف',
                       ),
-                      // aaaa
-                    ),
-                    Container(
-                      height: height(context, .2),
-                      // color: Color.fromARGB(225, 255, 4, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/five.png',
-                            scale: 4.r,
-                          ),
-                          SizedBox(
-                            width: width(context, .03),
-                          ),
-                          Container(
-                            // color: Color(0xFF03110F),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width(context, .6),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("مراقبة وتقييم الأداء",
-                                          style: TextStyle(
-                                              color: Color(0xff09f9a3),
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold)),
-                                      SizedBox(
-                                        height: height(context, .01),
-                                      ),
-                                      Text(
-                                          "بعد تنفيذ الاستراتيجية، نقوم بمتابعة الأداء وتقديم تقارير دورية توضح التقدم المحرز. نعمل على تعديل الاستراتيجيات حسب الحاجة لضمان تحقيق الأهداف",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold))
-                                      // endcontaner
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      StepCard(
+                        imagePath: 'assets/four.png',
+                        title: 'تنفيذ الاستراتيجية وبناء الحضور الرقمي',
+                        description:
+                            'نعمل على تنفيذ الاستراتيجية الموضوعة، بما في ذلك تطوير موقع الويب، إدارة وسائل التواصل الاجتماعي، وتقديم المحتوى الذي يعزز من تواجد علامتك الرقمية',
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                      StepCard(
+                        imagePath: 'assets/five.png',
+                        title: 'مراقبة وتقييم الأداء',
+                        description:
+                            'بعد تنفيذ الاستراتيجية، نقوم بمتابعة الأداء وتقديم تقارير دورية توضح التقدم المحرز. نعمل على تعديل الاستراتيجيات حسب الحاجة لضمان تحقيق الأهداف',
+                      ),
+                    ],
+                  )),
             )
           ])),
           Positioned(
