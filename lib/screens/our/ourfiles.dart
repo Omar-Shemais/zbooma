@@ -111,6 +111,8 @@ class _OurfilesState extends State<Ourfiles> {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           Text(
                             'هنا تبدأ رحلتك نحو نجاح متجرك',
@@ -137,130 +139,128 @@ class _OurfilesState extends State<Ourfiles> {
         onRefresh: refreshData,
         color: AppColors.green,
         backgroundColor: Colors.transparent,
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/data.png"),
-              fit: BoxFit.cover,
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/data.png"),
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          height: height(context, 1),
-          width: width(context, 1),
-          child: Column(
-            children: [
-              Divider(
-                height: height(context, .02),
-                thickness: 2,
-                color: Color(0xff09f9a3),
-              ),
-              SizedBox(height: height(context, .01)),
-              OurCard(),
-              SizedBox(height: height(context, .05)),
-              // SizedBox.shrink(),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w),
-                      child: Column(
-                        children: [
-                          SizedBox.shrink(),
-                          GridView.count(
-                            childAspectRatio: 0.8,
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 15,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            children: [
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => search(),
-                                  ),
-                                ),
-                                child: CustomCard(
-                                  title: "تحسين محركات البحث",
-                                  description:
-                                      "تصدر الصفحات الأولى في نتائج محركات البحث",
-                                  image: AssetImage("assets/101.png"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => Programming(),
-                                  ),
-                                ),
-                                child: CustomCard(
-                                  title: "برمجة",
-                                  description:
-                                      "خدمات برمجية مبتكرة خصيصًا لمتجرك",
-                                  image: AssetImage("assets/102.png"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => marketing(),
-                                  ),
-                                ),
-                                child: CustomCard(
-                                  title: "حملات اعلانيه",
-                                  description:
-                                      " حقق المزيد من الارباح المتفاوته من خلال نظام تسويقي قوي ",
-                                  image: AssetImage("assets/103.png"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => graphic(),
-                                  ),
-                                ),
-                                child: CustomCard(
-                                  title: "تصميمات الجرافيك",
-                                  description:
-                                      "جزا بل يتجزا من نجاح عمليه التسويق ",
-                                  image: AssetImage("assets/104.png"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => Socialmedia(),
-                                  ),
-                                ),
-                                child: CustomCard(
-                                  title: "إدارة حسابات السوشيال ميديا",
-                                  description:
-                                      "خدمات برمجيه مبتكره خصيصا لمتجرك الاكتروني ",
-                                  image: AssetImage("assets/105.png"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => Brand(),
-                                  ),
-                                ),
-                                child: CustomCard(
-                                  title: "تطوير العلامة التجارية",
-                                  description:
-                                      "تعزيز الظهور الرقمي في سوق التجاره الاكترونيه ",
-                                  image: AssetImage("assets/106.png"),
-                                ),
-                              ),
-                              // Spacer()
-                            ],
-                          ),
-                          SizedBox(
-                            height: 50.h,
-                          ),
-                        ],
-                      )),
+            // height: height(context, 1),
+            width: width(context, 1),
+            child: Column(
+              children: [
+                Divider(
+                  height: height(context, .02),
+                  thickness: 2,
+                  color: Color(0xff09f9a3),
                 ),
-              ),
-            ],
+                SizedBox(height: height(context, .01)),
+                OurCard(),
+                SizedBox(height: height(context, .05)),
+                // SizedBox.shrink(),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: Column(
+                      children: [
+                        // SizedBox.shrink(),
+                        GridView.count(
+                          childAspectRatio: 0.8,
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 15,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          children: [
+                            InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => search(),
+                                ),
+                              ),
+                              child: CustomCard(
+                                title: "تحسين محركات البحث",
+                                description:
+                                    "تصدر الصفحات الأولى في نتائج محركات البحث",
+                                image: AssetImage("assets/101.png"),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Programming(),
+                                ),
+                              ),
+                              child: CustomCard(
+                                title: "برمجة",
+                                description:
+                                    "خدمات برمجية مبتكرة خصيصًا لمتجرك",
+                                image: AssetImage("assets/102.png"),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => marketing(),
+                                ),
+                              ),
+                              child: CustomCard(
+                                title: "حملات اعلانيه",
+                                description:
+                                    " حقق المزيد من الارباح المتفاوته من خلال نظام تسويقي قوي ",
+                                image: AssetImage("assets/103.png"),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => graphic(),
+                                ),
+                              ),
+                              child: CustomCard(
+                                title: "تصميمات الجرافيك",
+                                description:
+                                    "جزا بل يتجزا من نجاح عمليه التسويق ",
+                                image: AssetImage("assets/104.png"),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Socialmedia(),
+                                ),
+                              ),
+                              child: CustomCard(
+                                title: "إدارة حسابات السوشيال ميديا",
+                                description:
+                                    "خدمات برمجيه مبتكره خصيصا لمتجرك الاكتروني ",
+                                image: AssetImage("assets/105.png"),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Brand(),
+                                ),
+                              ),
+                              child: CustomCard(
+                                title: "تطوير العلامة التجارية",
+                                description:
+                                    "تعزيز الظهور الرقمي في سوق التجاره الاكترونيه ",
+                                image: AssetImage("assets/106.png"),
+                              ),
+                            ),
+                            // Spacer()
+                          ],
+                        ),
+                        SizedBox(
+                          height: 50.h,
+                        ),
+                      ],
+                    )),
+              ],
+            ),
           ),
         ),
       ),

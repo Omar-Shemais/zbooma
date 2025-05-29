@@ -32,12 +32,12 @@ android {
     }
 
     defaultConfig {
-        // Specify your unique Application ID
-        applicationId = "com.example.zbooma"
-        minSdk = 23
-        targetSdk = 35
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+           applicationId = "zbooma.aplicfdx" // or your current app ID
+    minSdk = 23
+    targetSdk = 35
+
+    versionCode = 2       // ✅ This is the internal version for Play Store (must increase with each release)
+    versionName = "2.0.0" // ✅ This is the visible version users see
     }
 
     signingConfigs {

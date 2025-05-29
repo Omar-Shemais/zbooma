@@ -40,6 +40,7 @@ class OurCard extends StatelessWidget {
                 color: const Color.fromARGB(255, 255, 255, 255),
               ),
               textAlign: TextAlign.center,
+              textDirection: TextDirection.rtl,
             ),
             SizedBox(height: height(context, .01)),
             Row(

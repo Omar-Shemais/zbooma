@@ -130,7 +130,7 @@ class _DATAState extends State<DATA> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(85.h),
+        preferredSize: Size.fromHeight(95.h),
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -160,6 +160,8 @@ class _DATAState extends State<DATA> {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           Text(
                             'هنا تبدأ رحلتك نحو نجاح متجرك',
@@ -288,12 +290,12 @@ Widget _buildDataRow(dynamic value, String label,
       Container(
         padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           textDirection: TextDirection.rtl,
           children: [
             Text(
-              ": $label ",
+              ":$label ",
               style: TextStyle(
                 color: AppColors.green,
                 fontWeight: FontWeight.bold,
@@ -310,17 +312,18 @@ Widget _buildDataRow(dynamic value, String label,
                         style: TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
-                          fontSize: 13.sp,
+                          fontSize: 15.sp,
                         ),
                       ),
                     )
                   : Text(
-                      value.toString(),
+                      "  $value",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 14.sp,
+                        fontSize: 18.sp,
                       ),
                       overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                     ),
             ),
           ],
@@ -329,10 +332,10 @@ Widget _buildDataRow(dynamic value, String label,
       if (showDivider) ...[
         SizedBox(height: 2.h),
         Divider(
-          endIndent: 15.w,
-          indent: 15.w,
+          endIndent: 10.w,
+          indent: 10.w,
           height: 1,
-          thickness: 1,
+          thickness: .5,
           color: Colors.grey.withAlpha(128),
         ),
       ],
